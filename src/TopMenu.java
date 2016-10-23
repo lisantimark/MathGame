@@ -6,6 +6,7 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -13,33 +14,38 @@ import javax.swing.JMenuItem;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.KeyStroke;
-
+import javax.swing.event.MenuEvent;
+import javax.swing.event.MenuListener;
 /**
- * @author Mark
+ * 
  *
  */
-public class TopMenu {
+public class TopMenu implements ActionListener, MenuListener, KeyListener{
 	
 	JTextArea output;
 	JScrollPane scrollPane;
+	private JMenu exit;
 	
-	public JMenuBar menu() {
+	public JMenuBar menu(Viewer viewer) {
 
 		JMenuBar menuBar;
 		JMenu menu;
 		JMenu submenu;
-
+	
 		// Creates the first menu
 		menuBar = new JMenuBar();
 
 		// Outside the first menu- Name on top
 		menu = new JMenu("Settings");
 		menuBar.add(menu);
+		
+		submenu = new JMenu("Exit");
+		menu.add(submenu);
 		// IMAGES SUBMENU
 		menu.addSeparator();
 		submenu = new JMenu("Select Image");
 		submenu.setMnemonic(KeyEvent.VK_1);
-
+		
 		JMenuItem menuItemA = new JMenuItem("Image 1", KeyEvent.VK_2);
 		submenu.add(menuItemA);
 		menu.add(submenu);
@@ -84,53 +90,91 @@ public class TopMenu {
 		
 		
 		menuItemA.addActionListener(new ActionListener(){
-		    public void actionPerformed(ActionEvent arg0){
-		    	  System.out.println("You have selected image 1");
-				     String filename = "moon.jpg";
-				    }
+		    public void actionPerformed(ActionEvent e){
+		    	
+			
+		    
+		    		}
 				    });
 		   
 		   menuItemB.addActionListener(new ActionListener(){
-			   public void actionPerformed(ActionEvent arg0){
-				     System.out.println("You have selected image 2");
-				     String filename = "image2.jpg";
+			   public void actionPerformed(ActionEvent e){
+				   
+				     
 				    }
 				    });
 		   
 		   menuItemC.addActionListener(new ActionListener(){
-			   public void actionPerformed(ActionEvent arg0){
-				     System.out.println("You have selected image 3");
-				     String filename = "image3.jpg";
+			   public void actionPerformed(ActionEvent e){
+				   
+				     
 				    }
 				    });
 		   
 		   menuItemD.addActionListener(new ActionListener(){
-			   public void actionPerformed(ActionEvent arg0){
+			   public void actionPerformed(ActionEvent e){
 			     System.out.println("You have selected 4 problems");
 			     
 			    }
 			    });
 		   
 		   menuItemE.addActionListener(new ActionListener(){
-			   private int split_state;
-
 			public void actionPerformed(ActionEvent arg0){
-			     System.out.println("You have selected 9 problems");
-			     split_state = 2;
+	
+			
 			    }
 			    });
 		   
-		   menuItemE.addActionListener(new ActionListener(){
-			   private int split_state;
-
+		   menuItemF.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent arg0){
 			     System.out.println("You have selected 16 problems");
-			     split_state = 3;
-			     
+	
 			    }
 			    });
 
 		return menuBar;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void menuCanceled(MenuEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void menuDeselected(MenuEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void menuSelected(MenuEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyTyped(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
